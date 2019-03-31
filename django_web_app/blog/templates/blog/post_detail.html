@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="jumbotron mt-3 shadow-lg">
+<article class="media content-section shadow ">
+   <a href="{{ object.author.profile.image.url }} " target="_blank"> <img src="{{ object.author.profile.image.url }}  " alt="" class="article-img rounded-circle img-thumbnail img-fluid">
+   </a>
+    <div class="media-body">
+      <div class="">
+        <div class="d-flex justify-content-between">
+        <a class="mr-2 mt-0 mb-0  text-dark" href="{% url 'user-posts' object.author.username  %}"><h3>{{ object.author }}</h3></a>
+        <small class="text-muted  text-align-right">{{ object.date_upload }}</small>
+        </div>
+        {% if object.author != user %}
+          <div class="form-group mt-0 pt-0 d-flex justify-content-end">          
+            <a href="{{ object.file.url }}" download class="btn btn-primary flex-last" type="submit"><i class="fas fa-download"></i> Downlaod</a>
+          </div>
+        {% endif %}
+        <hr>
+        {% if object.author == user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+      {% if object.file %}
+        <a href="{{ object.file.url }}"  download ><img src="{{ object.file.url }}" alt="" class="img-fluid "></a>
+      
+        <a href="{{ object.file.url }}"  download class="text-dark"><h5>{{ object.file }}</h5></a>
+      {% endif %}
+      <h2>{{ object.title }}</h2>
+      <p class="article-content">{{ object.content }}</p>
+    </div>
+  </article>
+{% endblock content %}

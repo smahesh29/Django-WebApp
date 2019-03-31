@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+    {% if title %}
+        <title>Django FileApp - {{title}}</title>
+    {% else %}
+        <title>Django FileApp</title>
+    {% endif %}
+
+</head>
+  <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand font-weight-bold" href="{% url 'blog-home' %}"><i class="fas fa-file"></i> Django FileApp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'blog-home' %}"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                    </li>
+                   
+
+                    
+                  </ul>
+                  <!------{{ request.get_host }}/blog/search/-->
+                  <form id="searchform" action="{% url 'search' %}" method="get">
+                    <input type="text" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search Here..." />
+                    <button type="button" onclick="searchform.submit()" class=" text-white my-color btn-primary"><i class="fa fa-search"></i></button>
+                </form>
+              
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'user-posts' user %}" class="btn text-white m-2"><i class="fas fa-user-shield"></i> My Post</a>
+                    <a href="{% url 'post-create' %} " class="btn text-white m-2"><i class="fas fa-user-edit"></i> New Post</a>
+                    <a href="{% url 'profile' %} " class="btn text-white m-2"><i class="fas fa-user"></i> {{ user.username }}</a>
+                    <a href="{% url 'logout' %} " class="btn text-white m-2"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    
+                    {% else %}
+                    <a href="{% url 'login' %} " class="btn text-white m-2"><i class="fas fa-user-tie"></i> Log In</a>
+                   
+                    <a href="{% url 'register' %} " class="btn text-white m-2"> <i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                    {% endif %}
+                  
+                </div>
+              </nav>
+      <div class="container my-bg">
+        {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+          {% endfor %}
+        {% endif %}
+    {% block content %}
+      
+    {% endblock  %}
+</div> 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{% static 'blog/main.js' %}"></script>
+  </body>
+</html>

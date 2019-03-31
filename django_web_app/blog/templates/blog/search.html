@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<p>Posts containing '{{query_string}}'</p> 
+{% for post in posts %}
+    <div>
+        <span> {{ post.created }} </span>
+        <a href="{% url 'post_detail' slug=post.slug %}"><h2 class="page-title">{{ post.title }}</h2></a>
+        <div class="post">
+            {{ post.body|safe }}
+        </div>
+    </div>
+{% endfor %}
+{% endblock content %}
