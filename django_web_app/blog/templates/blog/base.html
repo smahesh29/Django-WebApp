@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
     {% if title %}
-        <title>Django FileApp - {{title}}</title>
+        <title>Django WebApp - {{title}}</title>
     {% else %}
-        <title>Django FileApp</title>
+        <title>Django WebApp</title>
     {% endif %}
 
 </head>
   <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand font-weight-bold" href="{% url 'blog-home' %}"><i class="fas fa-file"></i> Django FileApp</a>
+                <a class="navbar-brand font-weight-bold" href="{% url 'blog-home' %}"><i class="fas fa-file"></i> Django WebApp</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
