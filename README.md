@@ -1,5 +1,5 @@
 # Django-WebApp
-This project was done by me as a assignment from IOT Technolgies for an internship.
+This project was done by me as a assignment for an internship.
 
 Assignment Problem Statement:
 
