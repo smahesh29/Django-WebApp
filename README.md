@@ -31,6 +31,7 @@ Additional Python Modules Required:
     1.Django
     2.django-crispy-forms
     3.Pillow
+    <b>Hello</b>
 
 # Support :
 If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of coffee ☕
