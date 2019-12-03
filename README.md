@@ -38,7 +38,19 @@ This project was done by me as a assignment for an internship.
     <li>django-crispy-forms</li>
     <li>Pillow</li>
 </ul>
-    
+  
+<h2>Note :</h2>
+
+<b>The Secret_Key required for the execution and debugging of project is not removed from the project code. So you can use the project as your college mini-project or by using the project code you can build your own project.</b>
+
+<h2>Usage :</h2>
+
+    python django_web_app/manage.py makemigrations
+
+    python django_web_app/manage.py migrate
+
+    python django_web_app/manage.py runserver
+
 # Screenshots : 
 <img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_36.png" height="400" width="800">
 <img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_44.png" height="400" width="800">
