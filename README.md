@@ -1,41 +1,56 @@
 # Django-WebApp
-<ing src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj5gJrGrJnmAhVYIbcAHeFGDesQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fthe-ultimate-beginners-guide-to-django-django-2-python-web-dev-website%2F&psig=AOvVaw0I2m-WlsnPmgwCMvzBHZS4&ust=1575457997703689" height="200" width="300">
 This project was done by me as a assignment for an internship.
 
-Assignment Problem Statement:
+<h2>Assignment Problem Statement:</h2>
 
-    Part 1:
-      1. Create a web-app where a user can login.
-      2. User can upload files.
-      3. User can view his/her uploaded files.
+<h4>Part 1:</h4>
+<ol>
+    <li>Create a web-app where a user can login.</li>
+    <li>User can upload files.</li>
+    <li>User can view his/her uploaded files.</li>
+</ol>
 
-    Part 2:
-      1. User can search and view profile of other users.
-      2. They can share their uploaded files with any of those users.
-      3. Users can see the shared files by other users also in uploaded files.
+<h4>Part 2:</h4>
+<ol>
+     <li>User can search and view profile of other users.</li>
+     <li>They can share their uploaded files with any of those users.</li>
+     <li>Users can see the shared files by other users also in uploaded files.</li>
+</ol>
 
-Additional Features:
-
-    1. In users profile user can set his/her profile picture.
-    2. Users can download other users uploaded files.
-    3. The user can upload any type of files such as images, videos, text files and also different types of programs like python code, java code, etc.
+<h4>Additional Features:</h4>
+<ol>
+    <li>In users profile user can set his/her profile picture.</li>
+    <li>Users can download other users uploaded files.</li>
+    <li>The user can upload any type of files such as images, videos, text files and also different types of programs like python code, java code, etc.</li>
+</ol>
     
-Technologies Used:
-
-    1. Python
-    2. Django
-    3. Bootstrap
-    4. JavaScript
+<h2>Technologies Used:</h2>
+<ul>
+    <li>Python</li>
+    <li>Django</li>
+    <li>Bootstrap</li>
+    <li>JavaScript</li>
+</ul>
     
-Additional Python Modules Required:
+<h2>Additional Python Modules Required:</h2>
+<ul>
+    <li>Django</li>
+    <li>django-crispy-forms</li>
+    <li>Pillow</li>
+</ul>
     
-    1.Django
-    2.django-crispy-forms
-    3.Pillow
+# Screenshots : 
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_36.png" height="400" width="800">
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_44.png" height="400" width="800">
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_51.png" height="400" width="800">
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_15_47.png" height="400" width="800">
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_16_14.png" height="400" width="800">
+<img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_16_06.png" height="400" width="800">
 
 # Support :
 If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of coffee ☕
-
-    G Pay : +919545123305
-    PhonePe : +919545123305
-    UPI ID : maheshusa29@oksbi
+<ul>
+    <li><b>G Pay :</b> +919545123305</li>
+    <li><b>PhonePe :</b> +919545123305</li>
+    <li><b>UPI ID :</b> maheshusa29@oksbi</li>
+</ul>
