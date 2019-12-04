@@ -1,4 +1,4 @@
-# Django-WebApp
+# Django-WebApp       <img alt="GitHub" src="https://img.shields.io/github/license/smahesh29/Django-WebApp">
 This project was done by me as a assignment for an internship.
 
 <h2>Assignment Problem Statement:</h2>
@@ -65,7 +65,7 @@ This project was done by me as a assignment for an internship.
 # Support :
 If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of coffee ☕
 <ul>
-    <li><a href="https://www.paypal.me/smahesh29">PayPal</a></li>
+    <li><a href="https://www.paypal.me/smahesh29"><b>PayPal</b></a></li>
     <li><b>G Pay :</b> +919545123305</li>
     <li><b>PhonePe :</b> +919545123305</li>
     <li><b>UPI ID :</b> maheshusa29@oksbi</li>
