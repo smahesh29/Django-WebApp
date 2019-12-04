@@ -59,6 +59,7 @@ This project was done by me as a assignment for an internship.
 <img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_14_44.png" height="400" width="800">
 <img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_15_47.png" height="400" width="800">
 <img src="Screenshots/New Tab - Google Chrome 03-12-2019 19_16_14.png" height="400" width="800">
+<img src="Screenshots/Django WebApp - Google Chrome 04-12-2019 13_41_50.png" height="400" width="800">
 <img src="Screenshots/Django WebApp - Google Chrome 03-12-2019 20_48_45.png" height="400" width="800">
 
 # Support :
