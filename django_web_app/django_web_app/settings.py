@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@5&-q%^o=@mb@=@e%b9yz^b#l-2)w&_s0ick#=wy3kw36$z($g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-# [!] Ustawić adres zewnętrzny!!!!!!!!!!!!!!!!!
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
+#wstawić adres zewnętrzny!!!!!!!!!!!!!!!!!
 
 # Allow cookies only for server inside
 SESSION_COOKIE_HTTPONLY = True
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'captcha'
+    'captcha',
 ]
 
 MIDDLEWARE = [
