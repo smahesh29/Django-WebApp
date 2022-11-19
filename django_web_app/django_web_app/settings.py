@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import structlog
+from corsheaders.defaults import default_headers, default_methods
 import logging
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -38,21 +39,26 @@ PROJECT_APPS = (
     'django_web_app',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+)
+
+THIRD_PARTY_APPS = (
+    'axes',
+    'captcha',
+    'corsheaders',
     'crispy_forms',
+    'password_strength',
+)
+
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'captcha',
 )
 
-THIRD_PARTY_APPS = (
-    'axes',
-)
-
-INSTALLED_APPS = PROJECT_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = PROJECT_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 AUTHENTICATION_BACKENDS = [
     'django_web_app.backends.AxesBackend',
@@ -61,6 +67,7 @@ AUTHENTICATION_BACKENDS = [
 MIDDLEWARE = [
     'django_structlog.middlewares.RequestMiddleware',
     'django_web_app.middlewares.RequestResponseLogMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,6 +81,14 @@ MIDDLEWARE = [
 MIDDLEWARE_CLASSES = (
     MIDDLEWARE
 )
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8000",
+]
+
+CORS_ALLOW_HEADERS = default_headers
+CORS_ALLOW_METHODS = default_methods
 
 ROOT_URLCONF = 'django_web_app.urls'
 
@@ -171,21 +186,9 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
+AUTH_PASSWORD_VALIDATORS = (
+    {'NAME': 'django_web_app.password_validation.CustomPasswordValidator'},
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

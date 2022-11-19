@@ -13,8 +13,7 @@ def register(request):
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')
         else:
-            messages.warning(request, f'Your information or chaptcha is wrong!')
-            form = UserRegisterForm()
+            return render(request, 'users/register.html', {'form': form})
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -33,8 +32,7 @@ def profile(request):
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
         else:
-            messages.warning(request, f'Your information or chaptcha is wrong!')
-            return redirect('profile')
+            return render(request, 'users/profile.html', {'form': form})
 
     else:
         u_form = UserUpdateForm(instance=request.user)
