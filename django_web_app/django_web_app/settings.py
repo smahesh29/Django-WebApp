@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import structlog
+import logging
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -33,7 +34,8 @@ SESSION_COOKIE_HTTPONLY = True
 
 # Application definition
 
-INSTALLED_APPS = [
+PROJECT_APPS = (
+    'django_web_app',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
@@ -44,9 +46,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'captcha',
+)
+
+THIRD_PARTY_APPS = (
+    'axes',
+)
+
+INSTALLED_APPS = PROJECT_APPS + THIRD_PARTY_APPS
+
+AUTHENTICATION_BACKENDS = [
+    'django_web_app.backends.AxesBackend',
 ]
 
 MIDDLEWARE = [
+    'django_structlog.middlewares.RequestMiddleware',
+    'django_web_app.middlewares.RequestResponseLogMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,7 +68,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware'
 ]
+
+MIDDLEWARE_CLASSES = (
+    MIDDLEWARE
+)
 
 ROOT_URLCONF = 'django_web_app.urls'
 
@@ -74,8 +93,69 @@ TEMPLATES = [
     },
 ]
 
+structlog.configure(
+    processors=[
+        structlog.stdlib.filter_by_level,
+        structlog.processors.TimeStamper(fmt="iso", utc=True),
+        structlog.stdlib.add_log_level,
+        structlog.stdlib.PositionalArgumentsFormatter(),
+        structlog.processors.StackInfoRenderer(),
+        structlog.processors.format_exc_info,
+        structlog.processors.UnicodeDecoder(),
+        structlog.stdlib.ProcessorFormatter.wrap_for_formatter,
+    ],
+    context_class=structlog.threadlocal.wrap_dict(dict),
+    logger_factory=structlog.stdlib.LoggerFactory(),
+    wrapper_class=structlog.stdlib.BoundLogger,
+    cache_logger_on_first_use=True,
+)
+
 WSGI_APPLICATION = 'django_web_app.wsgi.application'
 
+
+LOGLEVEL = "INFO"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        "json_renderer": {
+            "()": structlog.stdlib.ProcessorFormatter,
+            "processor": structlog.processors.JSONRenderer(sort_keys=True),
+        },
+        "console_renderer": {
+            "()": structlog.stdlib.ProcessorFormatter,
+            "processor": structlog.dev.ConsoleRenderer(colors=False),
+        },
+        "key_value_renderer": {
+            "()": structlog.stdlib.ProcessorFormatter,
+            "processor": structlog.processors.KeyValueRenderer(key_order=['timestamp', 'level', 'event', 'logger']),
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "json_renderer",
+        },
+        'gunicorn': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'json_renderer',
+        }
+    },
+    'loggers': {
+        'base': {
+            'level': LOGLEVEL,
+            'propagate': False,
+            'handlers': ['console'],
+        },
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -134,3 +214,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+AXES_COOLOFF_TIME = 1  # h
+AXES_WHITELIST_CALLABLE = lambda request, credentials: not credentials.get('username')
+AXES_LOCK_OUT_BY_USER_OR_IP = True
+AXES_FAILURE_LIMIT = 10
+AXES_ENABLED = 1
+AXES_ONLY_USER_FAILURES = 1
+
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

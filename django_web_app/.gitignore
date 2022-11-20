@@ -1,0 +1,45 @@
+# Application
+django_web_app/static
+django_web_app/uploads/*
+!django_web_app/uploads/.gitkeep
+django_web_app/logs/*
+!django_web_app/logs/.gitkeep
+nginx/static
+
+# Python intermediate files
+*.py[cod]
+__pycache__
+
+# Logs
+*.log
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+*.pot
+
+# PyCharm
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Vim
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+
+debug/
+
+# mac osx
+*.DS_Store
+
+# Virtualenv Environment
+/venv/
