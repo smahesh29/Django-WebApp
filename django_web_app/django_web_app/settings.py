@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 SECRET_KEY = '@5&-q%^o=@mb@=@e%b9yz^b#l-2)w&_s0ick#=wy3kw36$z($g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 #wstawić adres zewnętrzny!!!!!!!!!!!!!!!!!
