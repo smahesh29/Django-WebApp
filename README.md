@@ -67,10 +67,3 @@ This project was done by me as a assignment for an internship.
 <img src="Screenshots/Django WebApp - Google Chrome 04-12-2019 13_41_50.png" height="400" width="800">
 <img src="Screenshots/Django WebApp - Google Chrome 03-12-2019 20_48_45.png" height="400" width="800">
 
-# Support :
-If you found this project helpful or you learned something from the source code and want to thank me, consider me to pay my internet bills. This would encourage me to create many such projects 👨🏻‍💻
-<ul>
-    <li><a href="https://www.paypal.me/smahesh29"><b>PayPal</b></a></li>
-    <li><a href="https://imjo.in/XNZDCJ"><b>₹ (INR)</b></a></li>
-    <li><b>UPI ID :</b> maheshusa29@oksbi</li>
-</ul>
