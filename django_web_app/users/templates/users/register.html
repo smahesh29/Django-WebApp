@@ -3,9 +3,9 @@
 {% block content %}
     <div class="content-section">
         <form method="POST">
-            {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Today</legend>
+                {% csrf_token %}
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">

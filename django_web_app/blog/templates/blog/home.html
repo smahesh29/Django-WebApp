@@ -7,29 +7,29 @@
         </a>
         <div class="media-body">
           <div class="article-metadata d-flex justify-content-between">
-            <a class="mr-2 " href="{% url 'user-posts' post.author.username  %}"><h3>{{ post.author }}</h3></a>
+            <a class="mr-2 " href="{% url 'user-posts' post.author.username  %}"><h3>{{ post.author | escape }}</h3></a>
               <small class="text-muted">{{ post.date_upload|date:"F d, Y" }}</small>
           </div>
           {% if post.file %}
           <a href="{{ post.file.url }}"  download class="text-dark text-justify "><h5>{{ post.blog }}</h5></a>
           {% endif %}
-     
-      
-     
-          <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+
+
+
+          <h2><a class="article-title text-justify " href="{% url 'post-detail' post.id %}">{{ post.title | escape }}</a></h2>
           <div class="d-flex justify-content-between">
-            <p class="article-content text-justify text-truncate overflow-hidden">{{ post.content }}</p>
+            <p class="article-content text-justify text-truncate overflow-hidden">{{ post.content | escape }}</p>
             {% if post.file %}
-          <div class="form-group mt-0 pt-0  m-2">          
+          <div class="form-group mt-0 pt-0  m-2">
             <a class="btn btn-outline-primary  btn-d "  href="{{ post.file.url }}"  download type="submit"><i class="fas fa-download"></i></a>
           </div>
           {% endif %}
-        
+
           </div>
-      
+
         </div>
       </article>
-      </div>   
+      </div>
     {% endfor %}
     {% if is_paginated %}
 

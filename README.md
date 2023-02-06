@@ -39,6 +39,7 @@ This project was done by me as a assignment for an internship.
     <li>Django</li>
     <li>django-crispy-forms</li>
     <li>Pillow</li>
+    <li>django-simple-captcha</li>
 </ul>
   
 <h2>Note :</h2>
