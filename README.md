@@ -57,8 +57,8 @@ This project was done by me as a assignment for an internship.
    
  <h2>Docker Setup :</h2>
   
-  docker build -t <image-name> .
-  docker run -d -p 8080:8000 <image-name>
+  docker build -t image-name . <br>
+  docker run -d -p 8080:8000 image-name
     
   Hit the browser with http://localhost:8000 or http://127.0.0.1:8000/
 
