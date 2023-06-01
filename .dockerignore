@@ -1,0 +1,54 @@
+
+.Screenshots/
+
+# Django-related files and directories
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+*.pyc
+*.swp
+*.swo
+*.sqlite3
+
+# Static files
+/staticfiles/
+static/
+
+# Media files
+/media/
+
+# Environment variables and sensitive information
+.env
+.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime*
+*.swp
+
+# Log files
+*.log
+logs/
+
+# Dependency directories
+venv/
+env/
+pipenv/
+.venv/
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# Other build-related files
+Dockerfile
+docker-compose.yml
+
+# Ignore everything else except the required files
+*
+!.dockerignore
+!requirements.txt
+!manage.py
+!django_web_app/
