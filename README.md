@@ -54,6 +54,13 @@ This project was done by me as a assignment for an internship.
     python django_web_app/manage.py runserver
     
    In your web browser enter the address : http://localhost:8000 or http://127.0.0.1:8000/
+   
+ <h2>Docker Setup :</h2>
+  
+  docker build -t image-name . <br>
+  docker run -d -p 8080:8000 image-name
+    
+  Hit the browser with http://localhost:8000 or http://127.0.0.1:8000/
 
 # Working:
 [![Watch the video](https://img.youtube.com/vi/qIK-vfTig6c/0.jpg)](https://youtu.be/qIK-vfTig6c)

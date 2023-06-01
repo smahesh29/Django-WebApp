@@ -1,0 +1,52 @@
+# Django-related files and directories
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+*.pyc
+*.swp
+*.swo
+*.sqlite3
+
+# Static files
+/staticfiles/
+static/
+
+# Media files
+/media/
+
+# Environment variables and sensitive information
+.env
+.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime*
+*.swp
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Log files
+*.log
+logs/
+
+# Dependency directories
+venv/
+env/
+pipenv/
+.venv/
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# macOS-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+
+#Screenshots
